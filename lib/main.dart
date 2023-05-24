@@ -8,8 +8,8 @@ import 'app/core/p.dart';
 
 import 'app/module/splash_screen/splash_screen.dart';
 
-
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   P.initialize();
   runApp(const MyApp());
 }
@@ -30,5 +30,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
@@ -14,14 +14,14 @@ class BoolingCard extends StatefulWidget {
   State<BoolingCard> createState() => _BoolingCardState();
 }
 
-class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin {
-
+class _BoolingCardState extends State<BoolingCard>
+    with TickerProviderStateMixin {
   int? val = -1;
   bool _value = false;
   @override
   Widget build(BuildContext context) {
     final TabController _tabController = TabController(length: 3, vsync: this);
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
@@ -47,8 +47,8 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                         children: [
                           Container(
                             child: TabBar(
-                                labelPadding: const EdgeInsets.only(
-                                    left: 30, right: 20),
+                                labelPadding:
+                                    const EdgeInsets.only(left: 30, right: 20),
                                 controller: _tabController,
                                 labelColor: Primary,
                                 unselectedLabelColor: Colors.grey,
@@ -87,14 +87,13 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                               left: 20, top: 10, right: 20, bottom: 10),
                           child: GestureDetector(
                             onTap: () {
-                              P.dashboard.changeWidgetShowed(
-                                  widget: Show.SELECT_CITY);
+                              P.dashboard
+                                  .changeWidgetShowed(widget: Show.SELECT_CITY);
                             },
                             child: Row(
                               children: [
                                 Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       'From',
@@ -103,30 +102,28 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 12,
-                                          color: textColor
-                                              .withOpacity(0.3)),
+                                          color: textColor.withOpacity(0.3)),
                                     ),
                                     Space.Y(10),
-                                    P.dashboard.flyingFrom != null?
-                                    Text(
-                                      P.dashboard.flyingFrom!.iata_code!,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                          color: textColor),
-                                    ):
-                                    Text(
-                                      'Select City',
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                          color: textColor),
-                                    )
-                                    ,
+                                    P.dashboard.flyingFrom != null
+                                        ? Text(
+                                            P.dashboard.flyingFrom!.iata_code!,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                color: textColor),
+                                          )
+                                        : Text(
+                                            'Select City',
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                color: textColor),
+                                          ),
                                   ],
                                 ),
                                 Spacer(),
@@ -135,38 +132,35 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                     semanticsLabel: 'A red up arrow'),
                                 Spacer(),
                                 Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text(
                                       'FROM',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 12,
-                                          color: textColor
-                                              .withOpacity(0.3)),
+                                          color: textColor.withOpacity(0.3)),
                                     ),
                                     Space.Y(10),
-                                    P.dashboard.flyingTo!= null?
-                                    Text(
-                                      P.dashboard.flyingTo!.iata_code!  ,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                          color: textColor),
-                                    ):Text(
-                                        'Select City',
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                          color: textColor),
-                                    ),
-
-
+                                    P.dashboard.flyingTo != null
+                                        ? Text(
+                                            P.dashboard.flyingTo!.iata_code!,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                color: textColor),
+                                          )
+                                        : Text(
+                                            'Select City',
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                color: textColor),
+                                          ),
                                   ],
                                 ),
                               ],
@@ -183,70 +177,42 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                           child: Row(
                             children: [
                               GestureDetector(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'TRAVEL DATE',
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 12,
-                                            color: textColor
-                                                .withOpacity(0.3)),
-                                      ),
-                                      Space.Y(5),
-                                      Text(
-                                        DateFormat('EEEE, d MMM').format(P.dashboard.travelDate.value),
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 14,
-                                            color: textColor),
-                                      ),
-                                    ],
-                                  ),
-                                  onTap: () {
-                                    DatePicker.showDatePicker(context,
-                                        showTitleActions: true,
-                                        theme: DatePickerTheme(
-                                            headerColor: cards,
-                                            backgroundColor: cards,
-                                            itemStyle: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                fontSize: 18),
-                                            doneStyle: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                            )),
-                                        minTime: DateTime.now(),
-
-                                        onChanged: (date) {
-                                          print('change $date');
-                                        }, onConfirm: (date) {
-                                          P.dashboard.travelDate.value = date;
-
-                                        },
-                                        currentTime: DateTime.now(),
-                                        locale: LocaleType.en);
-                                  }),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'TRAVEL DATE',
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          color: textColor.withOpacity(0.3)),
+                                    ),
+                                    Space.Y(5),
+                                    Text(
+                                      DateFormat('EEEE, d MMM')
+                                          .format(P.dashboard.travelDate.value),
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: textColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
                               Spacer(),
                               Column(
-                                crossAxisAlignment:
-                                CrossAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Text(
                                     'RETURN',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 12,
-                                        color:
-                                        textColor.withOpacity(0.3)),
+                                        color: textColor.withOpacity(0.3)),
                                   ),
                                   Space.Y(5),
                                   Text(
@@ -256,8 +222,7 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14,
-                                        color:
-                                        textColor.withOpacity(0.3)),
+                                        color: textColor.withOpacity(0.3)),
                                   ),
                                 ],
                               ),
@@ -275,10 +240,9 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                             child: Row(
                               children: [
                                 GestureDetector(
-
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'TRAVELLERS',
@@ -287,12 +251,12 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 12,
-                                            color: textColor
-                                                .withOpacity(0.3)),
+                                            color: textColor.withOpacity(0.3)),
                                       ),
                                       Space.Y(5),
                                       Text(
-                                        P.dashboard.adult.value.toString() +' Adult',
+                                        P.dashboard.adult.value.toString() +
+                                            ' Adult',
                                         textAlign: TextAlign.center,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
@@ -302,7 +266,7 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                       ),
                                     ],
                                   ),
-                                  onTap: (){
+                                  onTap: () {
                                     P.dashboard.changeWidgetShowed(
                                         widget: Show.TRAVELLER);
                                   },
@@ -314,21 +278,19 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                 ),
                                 Spacer(),
                                 GestureDetector(
-                                  onTap: (){
+                                  onTap: () {
                                     P.dashboard.changeWidgetShowed(
                                         widget: Show.FLIGHT_CLASS);
                                   },
                                   child: Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
                                         'CLASS',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 12,
-                                            color: textColor
-                                                .withOpacity(0.3)),
+                                            color: textColor.withOpacity(0.3)),
                                       ),
                                       Space.Y(5),
                                       Text(
@@ -338,8 +300,7 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,
-                                            color: textColor
-                                               ),
+                                            color: textColor),
                                       ),
                                     ],
                                   ),
@@ -359,8 +320,8 @@ class _BoolingCardState extends State<BoolingCard> with TickerProviderStateMixin
                           ),
                           leading: Radio(
                             value: 1,
-                            fillColor: MaterialStateProperty.all<Color>(
-                                Colors.white),
+                            fillColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
                             groupValue: val,
                             onChanged: (value) {
                               setState(() {

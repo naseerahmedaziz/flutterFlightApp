@@ -1,7 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
 import 'package:get/get.dart';
 
 import '../../../routes/pages.dart';
@@ -28,62 +28,33 @@ class PayCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Input(type: InputType.number,
+                  Input(
+                    type: InputType.number,
                     label: 'CARD NUMBER',
-                    suffixIcon: IconButton(icon: ImageIcon(AssetImage('assets/images/master.png', ),color: Primary, size: 40,), onPressed: () {  },
-
+                    suffixIcon: IconButton(
+                      icon: ImageIcon(
+                        AssetImage(
+                          'assets/images/master.png',
+                        ),
+                        color: Primary,
+                        size: 40,
+                      ),
+                      onPressed: () {},
                     ),
                   ),
                   Space.Y(10),
-                  Input(type: InputType.text,
+                  Input(
+                    type: InputType.text,
                     label: 'NAME ON CARD',
-
                   ),
                   Space.Y(10),
                   Row(
                     children: [
-
-
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: (){
-                            DatePicker.showDatePicker(context,
-                                showTitleActions: true,
-                                theme: DatePickerTheme(
-                                    headerColor: cards,
-                                    backgroundColor: cards,
-                                    itemStyle: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight:
-                                        FontWeight.bold,
-                                        fontSize: 18),
-                                    doneStyle: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                    )),
-                                onChanged: (date) {
-                                  print('change $date');
-                                }, onConfirm: (date) {
-                                  P.flight.expiry_card.text = date.year.toString()+" : "+date.month.toString()+" : "+date.day.toString();
-
-                                }, currentTime: DateTime.now(), locale: LocaleType.en);
-                          },
-                          child: Input(
-                            label: 'EXPIRY',
-                            active: false,
-                            type: InputType.date,
-                            controller: P.flight.expiry_card,
-                            validator: (v) => v!.isNotEmpty ? null : "Field is required ",
-
-                          ),
-                        ),
-                      ),
                       Space.X(10),
                       Expanded(
-                        child: Input(type: InputType.number,
-
+                        child: Input(
+                          type: InputType.number,
                           label: 'CVV',
-
                         ),
                       ),
                     ],
@@ -95,11 +66,13 @@ class PayCard extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 12,
-                          color:textColor.withOpacity(0.3)),
+                          color: textColor.withOpacity(0.3)),
                     ),
                   ),
                   Space.Y(10),
-                  Center(child: Image.asset('assets/images/card_support.png'),)
+                  Center(
+                    child: Image.asset('assets/images/card_support.png'),
+                  )
                 ],
               ),
             ),
@@ -139,11 +112,11 @@ class PayCard extends StatelessWidget {
                         Space.X(40),
                         Expanded(
                             child: Press.bold(
-                              'Continue',
-                              onPressed: () {
-                                Get.toNamed( Routes.PROCESSING);
-                              },
-                            )),
+                          'Continue',
+                          onPressed: () {
+                            Get.toNamed(Routes.PROCESSING);
+                          },
+                        )),
                       ],
                     ),
                   ),

@@ -7,7 +7,6 @@ import 'package:albetro/app/module/dashboard_module/componects/select_city.dart'
 import 'package:albetro/app/module/dashboard_module/componects/travllers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
@@ -83,6 +82,9 @@ class _BookScreenState extends State<BookScreen> {
                           )
                         : Press.bold(
                             'Search Flight',
+                            onPressed: () {
+                              P.dashboard.filghtInfo();
+                            },
                           ),
                     Space.Y(24),
                     InfoCard(
